@@ -7,37 +7,47 @@ const App: FC = () => {
     const checkboxes = ["Redux", "Lodash", "Ant design", "Webpack", "Other"];
     // const purple = "#6B47ED"
     // const border = "#D4CCF7"
+    // const unselected = "#979797"
     return (
         <ConfigProvider
             theme={{
-                components: { Switch: { colorPrimary: "#6B47ED" } },
-                token: { colorPrimary: "#6B47ED", colorTextBase: "#343434" },
+                components: {
+                    Switch: {
+                        handleBg: editable ? "white" : "#6B47ED",
+                        handleSize: 14,  
+                        trackPadding:editable?4:1
+                    },
+                },
+                token: { colorPrimary: "#6B47ED", colorTextBase: "#343434"  },
             }}
         >
             <Form className="form bg-white w-[409px] h-[583px] px-8 py-5 flex flex-col justify-around">
                 <Space className="flex justify-between">
                     <Typography className="text-base font-medium">Editable</Typography>
-                    <Switch
-                        checked={editable}
-                        onClick={() => setEditable(!editable)}
-                        style={{ backgroundColor: editable ? "#6B47ED" : "white" }}
-                    />
+                    <Switch style={{border:editable?"none":"3px solid #D4CCF7"}} checked={editable} onClick={() => setEditable(!editable)} />
                 </Space>
                 <Typography className="text-[18px] font-bold">
                     Are you proficient in ReactJS development?
                 </Typography>
                 <Radio.Group className="flex flex-col h-[59px] justify-between font-[450]">
-                    <Radio defaultChecked={true} value="no">No</Radio>
+                    <Radio defaultChecked={true} value="no">
+                        No
+                    </Radio>
                     <Radio value="yes">Yes</Radio>
-                </Radio.Group> <Space className="flex flex-col items-start">
-                <Typography className="text-[18px] font-bold">Which tools do you use?</Typography>
-                <Typography className="text-base ">Please select all that apply.</Typography> </Space>
+                </Radio.Group>{" "}
+                <Space className="flex flex-col items-start">
+                    <Typography className="text-[18px] font-bold">
+                        Which tools do you use?
+                    </Typography>
+                    <Typography className="text-base ">Please select all that apply.</Typography>{" "}
+                </Space>
                 <Checkbox.Group className="flex flex-col h-[170px] justify-between">
-                {checkboxes.map(x => (
-                    <Checkbox value={x} className="font-[550]" key={x}>
-                        {x}
-                    </Checkbox>
-                ))}</Checkbox.Group>
+                    {checkboxes.map(x => (
+                        <Checkbox value={x} className="font-[550]" key={x}>
+                            {x}
+                        </Checkbox>
+                    ))}
+                </Checkbox.Group>
                 <Space className="flex justify-center">
                     <Button
                         shape="round"

@@ -10,18 +10,22 @@ body{
   align-items: center; 
 }
 
+// change font
 .form{
   font-family: Nunito;
 }   
 
+// overwrite checkbox
 .ant-checkbox-inner { 
   border-radius: 50% !important;
   &::after{
     display: none !important; 
   } 
 }
+
+// overwrite radio
 .ant-radio-inner {  
   &::after{
     display: none !important; 
   } 
-}
+}  
