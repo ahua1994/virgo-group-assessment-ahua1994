@@ -20,13 +20,17 @@ body{
   border-radius: 50% !important;
   &::after{
     display: none !important; 
-  } 
+  }  
+}
+
+//overwrite disabled checkbox text color
+.ant-checkbox-checked+span{
+  color:#343434 !important;
 }
 
 // overwrite radio
 .ant-radio-inner {  
   &::after{
     display: none !important; 
-  } 
-}  
- 
+  }  
+}   

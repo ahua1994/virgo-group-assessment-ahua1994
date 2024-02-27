@@ -1,4 +1,4 @@
-export const data: {
+export const dfault: {
     isProficient: boolean;
     0: string;
     1: string;
