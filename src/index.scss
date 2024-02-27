@@ -13,3 +13,15 @@ body{
 .form{
   font-family: Nunito;
 }   
+
+.ant-checkbox-inner { 
+  border-radius: 50% !important;
+  &::after{
+    display: none !important; 
+  } 
+}
+.ant-radio-inner {  
+  &::after{
+    display: none !important; 
+  } 
+}
